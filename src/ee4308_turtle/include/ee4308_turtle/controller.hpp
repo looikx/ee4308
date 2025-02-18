@@ -49,6 +49,9 @@ namespace ee4308::turtle
         double max_linear_vel_;
         double xy_goal_thres_;
         double yaw_goal_thres_;
+        double curvature_threshold;
+        double proximity_threshold;
+        double lookahead_gain;
 
         // topics 
         nav_msgs::msg::Path global_plan_;

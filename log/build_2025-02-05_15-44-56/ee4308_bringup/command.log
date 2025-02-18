@@ -1,0 +1,4 @@
+Invoking command in '/home/kai137/ee4308/build/ee4308_bringup': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_bringup -- -j16 -l16
+Invoked command in '/home/kai137/ee4308/build/ee4308_bringup' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_bringup -- -j16 -l16
+Invoking command in '/home/kai137/ee4308/build/ee4308_bringup': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/kai137/ee4308/build/ee4308_bringup
+Invoked command in '/home/kai137/ee4308/build/ee4308_bringup' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/kai137/ee4308/build/ee4308_bringup

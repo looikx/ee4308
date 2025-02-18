@@ -1,0 +1,63 @@
+[0.011s] Invoking command in '/home/kai137/ee4308/build/ee4308_turtle': AMENT_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/opt/ros/humble /usr/bin/cmake /home/kai137/ee4308/src/ee4308_turtle -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kai137/ee4308/install/ee4308_turtle
+[0.020s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.100s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.103s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[0.121s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.123s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.126s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.131s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.138s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.156s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.157s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.218s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.245s] -- Found rclcpp_lifecycle: 16.0.11 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[0.254s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.270s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[0.279s] -- Found tf2: 0.25.11 (/opt/ros/humble/share/tf2/cmake)
+[0.281s] -- Found tf2_ros: 0.25.11 (/opt/ros/humble/share/tf2_ros/cmake)
+[0.324s] -- Found nav2_common: 1.1.17 (/opt/ros/humble/share/nav2_common/cmake)
+[0.325s] -- Found nav2_core: 1.1.17 (/opt/ros/humble/share/nav2_core/cmake)
+[0.371s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[0.371s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.431s] -- Found ee4308_core: 0.0.0 (/home/kai137/ee4308/install/ee4308_core/share/ee4308_core/cmake)
+[0.432s] -- Setting build type to Release as none was specified.
+[0.577s] -- Configuring done
+[0.623s] -- Generating done
+[0.629s] -- Build files have been written to: /home/kai137/ee4308/build/ee4308_turtle
+[0.636s] Invoked command in '/home/kai137/ee4308/build/ee4308_turtle' returned '0': AMENT_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/opt/ros/humble /usr/bin/cmake /home/kai137/ee4308/src/ee4308_turtle -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kai137/ee4308/install/ee4308_turtle
+[0.636s] Invoking command in '/home/kai137/ee4308/build/ee4308_turtle': AMENT_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16
+[0.675s] [ 25%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[0.675s] [ 50%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_planner.dir/src/planner.cpp.o[0m
+[3.934s] [ 75%] [32m[1mLinking CXX shared library libee4308_turtle_controller.so[0m
+[4.104s] [ 75%] Built target ee4308_turtle_controller
+[4.315s] [100%] [32m[1mLinking CXX shared library libee4308_turtle_planner.so[0m
+[4.477s] [100%] Built target ee4308_turtle_planner
+[4.486s] Invoked command in '/home/kai137/ee4308/build/ee4308_turtle' returned '0': AMENT_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16
+[4.488s] Invoking command in '/home/kai137/ee4308/build/ee4308_turtle': AMENT_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/opt/ros/humble /usr/bin/cmake --install /home/kai137/ee4308/build/ee4308_turtle
+[4.493s] -- Install configuration: "Release"
+[4.494s] -- Execute custom install script
+[4.494s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/lib/libee4308_turtle_controller.so
+[4.500s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle//ee4308_turtle_controller.xml
+[4.505s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/lib/libee4308_turtle_planner.so
+[4.510s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle//ee4308_turtle_planner.xml
+[4.518s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/include//ee4308_turtle/controller.hpp
+[4.524s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/include//ee4308_turtle/planner.hpp
+[4.531s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ament_index/resource_index/package_run_dependencies/ee4308_turtle
+[4.536s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ament_index/resource_index/parent_prefix_path/ee4308_turtle
+[4.543s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/environment/ament_prefix_path.sh
+[4.548s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/environment/ament_prefix_path.dsv
+[4.553s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/environment/path.sh
+[4.559s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/environment/path.dsv
+[4.566s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/local_setup.bash
+[4.573s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/local_setup.sh
+[4.578s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/local_setup.zsh
+[4.583s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/local_setup.dsv
+[4.590s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/package.dsv
+[4.595s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ament_index/resource_index/packages/ee4308_turtle
+[4.602s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ament_index/resource_index/nav2_core__pluginlib__plugin/ee4308_turtle
+[4.608s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.615s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.621s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/cmake/ee4308_turtleConfig.cmake
+[4.627s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/cmake/ee4308_turtleConfig-version.cmake
+[4.634s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/package.xml
+[4.640s] Invoked command in '/home/kai137/ee4308/build/ee4308_turtle' returned '0': AMENT_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/opt/ros/humble /usr/bin/cmake --install /home/kai137/ee4308/build/ee4308_turtle

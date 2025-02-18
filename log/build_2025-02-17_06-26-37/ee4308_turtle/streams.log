@@ -1,0 +1,15 @@
+[0.016s] Invoking command in '/home/kai137/ee4308/build/ee4308_turtle': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16
+[0.067s] [ 25%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[0.070s] [ 75%] Built target ee4308_turtle_planner
+[2.225s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual geometry_msgs::msg::TwistStamped ee4308::turtle::Controller::computeVelocityCommands(const PoseStamped&, const Twist&, nav2_core::GoalChecker*)[m[K’:
+[2.225s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:97:16:[m[K [01;31m[Kerror: [m[Kunused variable ‘[01m[Kclosest_point_x[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Werror=unused-variable]8;;[m[K]
+[2.225s]    97 |         double [01;31m[Kclosest_point_x[m[K = global_plan_.poses[closest_index].pose.position.x;
+[2.225s]       |                [01;31m[K^~~~~~~~~~~~~~~[m[K
+[2.225s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:98:16:[m[K [01;31m[Kerror: [m[Kunused variable ‘[01m[Kclosest_point_y[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Werror=unused-variable]8;;[m[K]
+[2.225s]    98 |         double [01;31m[Kclosest_point_y[m[K = global_plan_.poses[closest_index].pose.position.y;
+[2.225s]       |                [01;31m[K^~~~~~~~~~~~~~~[m[K
+[3.529s] cc1plus: all warnings being treated as errors
+[3.544s] gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+[3.544s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+[3.545s] gmake: *** [Makefile:146: all] Error 2
+[3.547s] Invoked command in '/home/kai137/ee4308/build/ee4308_turtle' returned '2': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16

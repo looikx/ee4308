@@ -1,0 +1,13 @@
+[0.008s] Invoking command in '/home/kai137/ee4308/build/ee4308_turtle': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16
+[0.050s] [35m[1mConsolidate compiler generated dependencies of target ee4308_turtle_controller[0m
+[0.064s] [ 50%] Built target ee4308_turtle_planner
+[0.068s] [ 75%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[1.971s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual geometry_msgs::msg::TwistStamped ee4308::turtle::Controller::computeVelocityCommands(const PoseStamped&, const Twist&, nav2_core::GoalChecker*)[m[K’:
+[1.971s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:71:53:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_plan_[m[K’ was not declared in this scope; did you mean ‘[01m[Kglobal_plan_[m[K’?
+[1.971s]    71 |         std::cout << "last point in global plan" << [01;31m[Kgoal_plan_[m[K.poses.back() << std::endl;
+[1.971s]       |                                                     [01;31m[K^~~~~~~~~~[m[K
+[1.971s]       |                                                     [32m[Kglobal_plan_[m[K
+[2.851s] gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+[2.852s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+[2.852s] gmake: *** [Makefile:146: all] Error 2
+[2.854s] Invoked command in '/home/kai137/ee4308/build/ee4308_turtle' returned '2': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16

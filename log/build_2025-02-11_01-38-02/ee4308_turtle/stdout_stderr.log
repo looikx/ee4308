@@ -1,0 +1,17 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[ 75%] Built target ee4308_turtle_planner
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual geometry_msgs::msg::TwistStamped ee4308::turtle::Controller::computeVelocityCommands(const PoseStamped&, const Twist&, nav2_core::GoalChecker*)[m[K’:
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:72:28:[m[K [01;31m[Kerror: [m[Kstatement has no effect [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Werror=unused-value]8;;[m[K]
+   72 |         [01;31m[Kpose.pose.position.x[m[K; // position x of the robot
+      |         [01;31m[K~~~~~~~~~~~~~~~~~~~^[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:79:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kdist[m[K’ was not declared in this scope
+   79 |             [01;31m[Kdist[m[K = sqrt(pow(point_pose_x - robot_x, 2) + pow(point_pose_y - robot_y, 2));
+      |             [01;31m[K^~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:80:16:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K([m[K’ before ‘[01m[Kdist[m[K’
+   80 |             if [01;31m[Kd[m[K[32m[Kist[m[K < desired_lookahead_dist_
+      |                [01;31m[K^[m[K[32m[K~~~[m[K
+      |                [32m[K([m[K
+cc1plus: all warnings being treated as errors
+gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

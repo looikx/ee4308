@@ -1,0 +1,28 @@
+[0.015s] Invoking command in '/home/kai137/ee4308/build/ee4308_turtle': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16
+[0.051s] [35m[1mConsolidate compiler generated dependencies of target ee4308_turtle_controller[0m
+[0.062s] [ 50%] Built target ee4308_turtle_planner
+[0.071s] [ 75%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[1.928s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual geometry_msgs::msg::TwistStamped ee4308::turtle::Controller::computeVelocityCommands(const PoseStamped&, const Twist&, nav2_core::GoalChecker*)[m[K’:
+[1.929s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:105:51:[m[K [01;31m[Kerror: [m[K‘[01m[Kyaw[m[K’ was not declared in this scope
+[1.929s]   105 |         double phi = ee4308::getYawFromQuaternion([01;31m[Kyaw[m[K,&q);
+[1.929s]       |                                                   [01;31m[K^~~[m[K
+[1.932s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:105:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kq[m[K’ was not declared in this scope
+[1.932s]   105 |         double phi = ee4308::getYawFromQuaternion(yaw,&[01;31m[Kq[m[K);
+[1.932s]       |                                                        [01;31m[K^[m[K
+[1.932s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:122:9:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[Kdouble[m[K’
+[1.932s]   122 |         [01;31m[Kdouble[m[K angular_vel = linear_vel * curvature
+[1.932s]       |         [01;31m[K^~~~~~[m[K
+[1.932s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:115:16:[m[K [01;31m[Kerror: [m[Kunused variable ‘[01m[Kcurvature[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Werror=unused-variable]8;;[m[K]
+[1.932s]   115 |         double [01;31m[Kcurvature[m[K = 2 * y_r / std::pow(d_hypot,2);
+[1.932s]       |                [01;31m[K^~~~~~~~~[m[K
+[1.932s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:121:16:[m[K [01;31m[Kerror: [m[Kunused variable ‘[01m[Klinear_vel[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Werror=unused-variable]8;;[m[K]
+[1.932s]   121 |         double [01;31m[Klinear_vel[m[K = 0.5 * max_linear_vel_
+[1.932s]       |                [01;31m[K^~~~~~~~~~[m[K
+[2.760s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:125:5:[m[K [01;31m[Kerror: [m[Kcontrol reaches end of non-void function [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Werror=return-type]8;;[m[K]
+[2.760s]   125 |     [01;31m[K}[m[K
+[2.760s]       |     [01;31m[K^[m[K
+[2.767s] cc1plus: all warnings being treated as errors
+[2.787s] gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+[2.787s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+[2.787s] gmake: *** [Makefile:146: all] Error 2
+[2.789s] Invoked command in '/home/kai137/ee4308/build/ee4308_turtle' returned '2': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16

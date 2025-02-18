@@ -1,0 +1,20 @@
+[35m[1mConsolidate compiler generated dependencies of target ee4308_turtle_controller[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[ 75%] Built target ee4308_turtle_planner
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual geometry_msgs::msg::TwistStamped ee4308::turtle::Controller::computeVelocityCommands(const PoseStamped&, const Twist&, nav2_core::GoalChecker*)[m[K’:
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:105:51:[m[K [01;31m[Kerror: [m[K‘[01m[Kyaw[m[K’ was not declared in this scope
+  105 |         double phi = ee4308::getYawFromQuaternion([01;31m[Kyaw[m[K,&q);
+      |                                                   [01;31m[K^~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:105:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kq[m[K’ was not declared in this scope
+  105 |         double phi = ee4308::getYawFromQuaternion(yaw,&[01;31m[Kq[m[K);
+      |                                                        [01;31m[K^[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:103:16:[m[K [01;31m[Kerror: [m[Kunused variable ‘[01m[Kdelta_x[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Werror=unused-variable]8;;[m[K]
+  103 |         double [01;31m[Kdelta_x[m[K = lookahead_pose.pose.position.x - robot_x;
+      |                [01;31m[K^~~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:104:16:[m[K [01;31m[Kerror: [m[Kunused variable ‘[01m[Kdelta_y[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Werror=unused-variable]8;;[m[K]
+  104 |         double [01;31m[Kdelta_y[m[K = lookahead_pose.pose.position.y - robot_y;
+      |                [01;31m[K^~~~~~~[m[K
+cc1plus: all warnings being treated as errors
+gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,15 @@
+[0.013s] Invoking command in '/home/kai137/ee4308/build/ee4308_turtle': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16
+[0.052s] [35m[1mConsolidate compiler generated dependencies of target ee4308_turtle_controller[0m
+[0.063s] [ 50%] Built target ee4308_turtle_planner
+[0.072s] [ 75%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[1.935s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual geometry_msgs::msg::TwistStamped ee4308::turtle::Controller::computeVelocityCommands(const PoseStamped&, const Twist&, nav2_core::GoalChecker*)[m[K’:
+[1.935s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:105:51:[m[K [01;31m[Kerror: [m[K‘[01m[Kyaw[m[K’ was not declared in this scope
+[1.936s]   105 |         double phi = ee4308::getYawFromQuaternion([01;31m[Kyaw[m[K,&q);
+[1.936s]       |                                                   [01;31m[K^~~[m[K
+[1.939s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:105:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kq[m[K’ was not declared in this scope
+[1.939s]   105 |         double phi = ee4308::getYawFromQuaternion(yaw,&[01;31m[Kq[m[K);
+[1.939s]       |                                                        [01;31m[K^[m[K
+[2.822s] gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+[2.823s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+[2.823s] gmake: *** [Makefile:146: all] Error 2
+[2.825s] Invoked command in '/home/kai137/ee4308/build/ee4308_turtle' returned '2': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16

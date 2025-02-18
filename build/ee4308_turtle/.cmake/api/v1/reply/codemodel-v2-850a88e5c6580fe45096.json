@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-cb8207aedcbb7fecb21e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ee4308_turtle",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ee4308_turtle_controller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ee4308_turtle_controller-Release-01e73173e20037cac559.json",
+					"name" : "ee4308_turtle_controller",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ee4308_turtle_planner::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ee4308_turtle_planner-Release-5224ffe061766b0404c5.json",
+					"name" : "ee4308_turtle_planner",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ee4308_turtle_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ee4308_turtle_uninstall-Release-0d44ce93d1e952fd7d11.json",
+					"name" : "ee4308_turtle_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-c0ce9a57b81947010b63.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/kai137/ee4308/build/ee4308_turtle",
+		"source" : "/home/kai137/ee4308/src/ee4308_turtle"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

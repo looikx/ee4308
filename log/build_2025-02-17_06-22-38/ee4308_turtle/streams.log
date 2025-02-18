@@ -1,0 +1,32 @@
+[0.018s] Invoking command in '/home/kai137/ee4308/build/ee4308_turtle': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16
+[0.070s] [100%] Built target ee4308_turtle_controller
+[0.070s] [100%] Built target ee4308_turtle_planner
+[0.080s] Invoked command in '/home/kai137/ee4308/build/ee4308_turtle' returned '0': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16
+[0.082s] Invoking command in '/home/kai137/ee4308/build/ee4308_turtle': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --install /home/kai137/ee4308/build/ee4308_turtle
+[0.089s] -- Install configuration: "Release"
+[0.089s] -- Execute custom install script
+[0.089s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/lib/libee4308_turtle_controller.so
+[0.089s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle//ee4308_turtle_controller.xml
+[0.089s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/lib/libee4308_turtle_planner.so
+[0.089s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle//ee4308_turtle_planner.xml
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/include//ee4308_turtle/controller.hpp
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/include//ee4308_turtle/planner.hpp
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ament_index/resource_index/package_run_dependencies/ee4308_turtle
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ament_index/resource_index/parent_prefix_path/ee4308_turtle
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/environment/ament_prefix_path.sh
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/environment/ament_prefix_path.dsv
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/environment/path.sh
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/environment/path.dsv
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/local_setup.bash
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/local_setup.sh
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/local_setup.zsh
+[0.090s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/local_setup.dsv
+[0.090s] -- Symlinking: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/package.dsv
+[0.100s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ament_index/resource_index/packages/ee4308_turtle
+[0.100s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ament_index/resource_index/nav2_core__pluginlib__plugin/ee4308_turtle
+[0.100s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.100s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.100s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/cmake/ee4308_turtleConfig.cmake
+[0.100s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/cmake/ee4308_turtleConfig-version.cmake
+[0.100s] -- Up-to-date symlink: /home/kai137/ee4308/install/ee4308_turtle/share/ee4308_turtle/package.xml
+[0.103s] Invoked command in '/home/kai137/ee4308/build/ee4308_turtle' returned '0': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --install /home/kai137/ee4308/build/ee4308_turtle

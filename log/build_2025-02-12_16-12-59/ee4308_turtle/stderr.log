@@ -1,0 +1,8 @@
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual geometry_msgs::msg::TwistStamped ee4308::turtle::Controller::computeVelocityCommands(const PoseStamped&, const Twist&, nav2_core::GoalChecker*)[m[K’:
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:71:53:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_plan_[m[K’ was not declared in this scope; did you mean ‘[01m[Kglobal_plan_[m[K’?
+   71 |         std::cout << "last point in global plan" << [01;31m[Kgoal_plan_[m[K.poses.back() << std::endl;
+      |                                                     [01;31m[K^~~~~~~~~~[m[K
+      |                                                     [32m[Kglobal_plan_[m[K
+gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
