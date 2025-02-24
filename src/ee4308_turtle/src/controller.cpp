@@ -31,15 +31,15 @@ namespace ee4308::turtle
         plugin_name_ = name;
 
         // initialize parameters
-        initParam(node_, plugin_name_ + ".desired_linear_vel", desired_linear_vel_, 0.18);
+        initParam(node_, plugin_name_ + ".desired_linear_vel", desired_linear_vel_, 0.12);
         initParam(node_, plugin_name_ + ".desired_lookahead_dist", desired_lookahead_dist_, 0.3);
         initParam(node_, plugin_name_ + ".max_angular_vel", max_angular_vel_, 1.0);
         initParam(node_, plugin_name_ + ".max_linear_vel", max_linear_vel_, 0.22);
         initParam(node_, plugin_name_ + ".xy_goal_thres", xy_goal_thres_, 0.05);
         initParam(node_, plugin_name_ + ".yaw_goal_thres", yaw_goal_thres_, 0.25);
-        initParam(node_, plugin_name_ + ".curvature_threshold", curvature_threshold, 4.0);
-        initParam(node_, plugin_name_ + ".proximity_threshold", proximity_threshold, 0.1);
-        initParam(node_, plugin_name_ + ".lookahead_gain", lookahead_gain, 2.0);
+        initParam(node_, plugin_name_ + ".curvature_threshold", curvature_threshold, 1.0);
+        initParam(node_, plugin_name_ + ".proximity_threshold", proximity_threshold, 1.0);
+        initParam(node_, plugin_name_ + ".lookahead_gain", lookahead_gain, 5.0);
 
         current_lookahead_dist_ = desired_lookahead_dist_;
 
@@ -69,18 +69,22 @@ namespace ee4308::turtle
         
         double goal_x = goal_pose.pose.position.x;
         double goal_y = goal_pose.pose.position.y;
+        double goal_yaw = ee4308::getYawFromQuaternion(goal_pose.pose.orientation);
         //std::cout << "goal coordinates: " << goal_x << " " << goal_y << std::endl;
-
 
         double robot_x = pose.pose.position.x; // position x of the robot
         double robot_y = pose.pose.position.y; // position y of the robot
         double phi = ee4308::getYawFromQuaternion(pose.pose.orientation); // orientation of the robot
 
-        // check if robot is close to the goal
+        // check if robot is close to the goal (both dist and yaw)
         double dist_to_goal = std::hypot(goal_x - robot_x, goal_y - robot_y);
-        if (dist_to_goal < xy_goal_thres_ && phi )
+        double diff_yaw = std::abs(ee4308::limitAngle(goal_yaw - phi));
+
+        // if close to goal, then stop
+        if (dist_to_goal < xy_goal_thres_)
         {
-            if (phi < yaw_goal_thres_)
+            // if robot's heading is far from goal orientation, then
+            if (diff_yaw > yaw_goal_thres_)
             {
                 return writeCmdVel(0, max_angular_vel_); 
             }
@@ -103,23 +107,17 @@ namespace ee4308::turtle
             }
         }
 
-        // coordinates of the closest point
-        //double closest_point_x = global_plan_.poses[closest_index].pose.position.x;
-        //double closest_point_y = global_plan_.poses[closest_index].pose.position.y;
-
-        // get lookahead?
+        // get lookahead
         geometry_msgs::msg::PoseStamped lookahead_pose = goal_pose;
 
         // Determine lookahead point
-        //double lookahead_dist = (lookahead_dist > 0) ? lookahead_dist : desired_lookahead_dist_;
-        //double lookahead_dist = desired_lookahead_dist_;
-        std::cout << "current lookahead distance: " << current_lookahead_dist_ << std::endl;
+        //std::cout << "current lookahead distance: " << current_lookahead_dist_ << std::endl;
         for (size_t j = closest_index + 1; j < global_plan_.poses.size(); j++)
         {
             double point_pose_x = global_plan_.poses[j].pose.position.x; 
             double point_pose_y = global_plan_.poses[j].pose.position.y;
             double dist_from_robot = std::hypot((point_pose_x - robot_x),(point_pose_y - robot_y));
-            std::cout << "dist_from_robot: " << dist_from_robot << std::endl;
+            //std::cout << "dist_from_robot: " << dist_from_robot << std::endl;
 
             if (dist_from_robot >= current_lookahead_dist_) 
             {
@@ -136,47 +134,50 @@ namespace ee4308::turtle
         double y_r = delta_y * std::cos(phi) - delta_x * std::sin(phi);
 
         // calculate curvature
-        double d_hypot = std::hypot(x_r, y_r);
-        double curvature = 2 * y_r / std::pow(d_hypot,2);
-        //std::cout << "curvature: " << curvature << std::endl;
-    
-        //double linear_vel = 0 * (lookahead_pose.pose.position.x - pose.pose.position.x);
-        //double angular_vel = 0 * getYawFromQuaternion(goal_pose.pose.orientation);
-        
+        double d_squared = std::pow(x_r, 2) + std::pow(y_r, 2);
+        double curvature = 2 * y_r / d_squared;
+        std::cout << "curvature: " << curvature << std::endl;
+
         double linear_vel =  desired_linear_vel_;
         double angular_vel = linear_vel * curvature;
 
         // Curvature Heuristic
 
         double intermediate_linear_vel = linear_vel;
-        //std::cout << "intermediate_linear_vel: " << intermediate_linear_vel << std::endl;
 
         if (curvature_threshold < std::abs(curvature))
         {
             intermediate_linear_vel = desired_linear_vel_ * (curvature_threshold / std::abs(curvature));
         }
+        //std::cout << "intermediate_linear_vel " << intermediate_linear_vel << std::endl;
 
         // Proximity Heuristic
 
         double regulated_linear_vel = intermediate_linear_vel;
-        //std::cout << "regulated_linear_vel: " << regulated_linear_vel << std::endl;
+        //std::cout << "regulated_linear_vel " << regulated_linear_vel << std::endl;
+       
         if (shortest_dist < proximity_threshold)
         {
             //std::cout << "shortest_dist: " << shortest_dist << std::endl;
             regulated_linear_vel = intermediate_linear_vel * (shortest_dist / proximity_threshold);
-            double adjusted_lookahead_dist = regulated_linear_vel * lookahead_gain;
-            current_lookahead_dist_ = adjusted_lookahead_dist; 
-            return writeCmdVel(regulated_linear_vel, angular_vel);
         }
+
+        //std::cout << "regulated_linear_vel1: " << regulated_linear_vel << std::endl;
 
         // Vary Lookahead
 
         double adjusted_lookahead_dist = regulated_linear_vel * lookahead_gain;
-        //std::cout << "adjusted lookahead distance: " << adjusted_lookahead_dist << std::endl;
+        std::cout << "adjusted lookahead distance: " << adjusted_lookahead_dist << std::endl;
+
         current_lookahead_dist_ = adjusted_lookahead_dist;    
         //std::cout << "regulated_linear_vel2: " << regulated_linear_vel << std::endl;
 
-        return writeCmdVel(regulated_linear_vel, angular_vel);
+        regulated_linear_vel = std::clamp(regulated_linear_vel, -max_linear_vel_, max_linear_vel_);
+        angular_vel = std::clamp(angular_vel, -max_angular_vel_, max_angular_vel_);
+
+
+        //std::cout << "regulated_linear_vel " << regulated_linear_vel << std::endl;
+        return writeCmdVel(linear_vel, angular_vel);
     }
 
     geometry_msgs::msg::TwistStamped Controller::writeCmdVel(double linear_vel, double angular_vel)
