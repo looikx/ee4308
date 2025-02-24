@@ -1,0 +1,13 @@
+[0.012s] Invoking command in '/home/kai137/ee4308/build/ee4308_turtle': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16
+[0.053s] [35m[1mConsolidate compiler generated dependencies of target ee4308_turtle_controller[0m
+[0.071s] [ 25%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[0.071s] [ 75%] Built target ee4308_turtle_planner
+[2.973s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual geometry_msgs::msg::TwistStamped ee4308::turtle::Controller::computeVelocityCommands(const PoseStamped&, const Twist&, nav2_core::GoalChecker*)[m[K’:
+[2.973s] [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:119:13:[m[K [01;31m[Kerror: [m[K‘[01m[Klookahead_dist[m[K’ may be used uninitialized in this function [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmaybe-uninitialized-Werror=maybe-uninitialized]8;;[m[K]
+[2.973s]   119 |             [01;31m[Kif[m[K (dist_from_robot >= lookahead_dist)
+[2.973s]       |             [01;31m[K^~[m[K
+[3.193s] cc1plus: all warnings being treated as errors
+[3.209s] gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+[3.210s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+[3.210s] gmake: *** [Makefile:146: all] Error 2
+[3.212s] Invoked command in '/home/kai137/ee4308/build/ee4308_turtle' returned '2': CMAKE_PREFIX_PATH=/home/kai137/ee4308/install/ee4308_core:/home/kai137/ee4308/install/ee4308_turtle:/home/kai137/ee4308/install/ee4308_bringup:/opt/ros/humble /usr/bin/cmake --build /home/kai137/ee4308/build/ee4308_turtle -- -j16 -l16

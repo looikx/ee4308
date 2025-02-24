@@ -52,6 +52,8 @@ namespace ee4308::turtle
         double curvature_threshold;
         double proximity_threshold;
         double lookahead_gain;
+        
+        double current_lookahead_dist_;
 
         // topics 
         nav_msgs::msg::Path global_plan_;

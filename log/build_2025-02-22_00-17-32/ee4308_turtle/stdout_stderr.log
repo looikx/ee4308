@@ -1,0 +1,19 @@
+[35m[1mConsolidate compiler generated dependencies of target ee4308_turtle_controller[0m
+[ 50%] Built target ee4308_turtle_planner
+[ 75%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual void ee4308::turtle::Controller::configure(const WeakPtr&, std::string, std::shared_ptr<tf2_ros::Buffer>, std::shared_ptr<nav2_costmap_2d::Costmap2DROS>)[m[K’:
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:44:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_lookahead_dist[m[K’ was not declared in this scope; did you mean ‘[01m[Kcurrent_lookahead_dist_[m[K’?
+   44 |         [01;31m[Kcurrent_lookahead_dist[m[K = desired_lookahead_dist_;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |         [32m[Kcurrent_lookahead_dist_[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual geometry_msgs::msg::TwistStamped ee4308::turtle::Controller::computeVelocityCommands(const PoseStamped&, const Twist&, nav2_core::GoalChecker*)[m[K’:
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:133:9:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[Kdouble[m[K’
+  133 |         [01;31m[Kdouble[m[K delta_x = lookahead_pose.pose.position.x - robot_x;
+      |         [01;31m[K^~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:136:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kdelta_x[m[K’ was not declared in this scope; did you mean ‘[01m[Kdelta_y[m[K’?
+  136 |         double x_r = [01;31m[Kdelta_x[m[K * std::cos(phi) + delta_y * std::sin(phi);
+      |                      [01;31m[K^~~~~~~[m[K
+      |                      [32m[Kdelta_y[m[K
+gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
