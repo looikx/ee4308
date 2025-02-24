@@ -28,17 +28,50 @@ namespace ee4308::turtle
         const geometry_msgs::msg::PoseStamped &goal)
     {
         // initializations
-        PlannerNodes nodes(costmap_->getSizeInCellsX(), costmap_->getSizeInCellsY());
-        OpenList open_list;
-        RayTracer ray_tracer;
+        PlannerNodes nodes(costmap_->getSizeInCellsX(), costmap_->getSizeInCellsY()); // creates a grid same size as map
+        OpenList open_list; // priority queue 
+        RayTracer ray_tracer; //object that traces a straight line between two points on the grid
 
-        int start_mx, start_my, goal_mx, goal_my;
+        int start_mx, start_my, goal_mx, goal_my; //mx and my are map coordinates
         costmap_->worldToMapEnforceBounds(
             start.pose.position.x, start.pose.position.y,
             start_mx, start_my);
         costmap_->worldToMapEnforceBounds(
             goal.pose.position.x, goal.pose.position.y,
             goal_mx, goal_my);
+        
+        PlannerNode* start_node = nodes.getNode(start_mx, start_my);
+        PlannerNode* goal_node = nodes.getNode(goal_mx, goal_my);
+
+        //Initialize Start Node, Queue to Open List
+        start_node ->g = 0;
+        start_node ->h = std::hypot(goal_mx - start_mx, goal_my - start_my);
+        start_node ->f = start_node ->g + start_node ->h;
+        open_list.queue(start_node);
+        std::vector<std::array<int, 2>> coords;
+
+        std::cout<< "testig" << std::endl;
+        while (!open_list.empty())
+        {
+            PlannerNode* curr_node = open_list.pop();
+
+            if (curr_node->expanded)
+            {
+                continue;
+            }
+            // if current vertex is goal vertex
+            else if (curr_node->mx == goal_mx && curr_node->my == goal_my)
+            {
+                while (curr_node != nullptr)
+                {
+                    std::array<int, 2> coord = {curr_node->mx, curr_node->my};
+                    coords.push_back(coord);
+                    curr_node->expanded = true;
+                    curr_node = curr_node->parent;
+                }
+            }
+        }
+
 
         // draws a straight line from goal to start on the grid
         // mimics how a vector is typically filled when iterating from the goal node to start node.

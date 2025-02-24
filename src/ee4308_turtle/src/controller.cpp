@@ -31,22 +31,27 @@ namespace ee4308::turtle
         plugin_name_ = name;
 
         // initialize parameters
-        initParam(node_, plugin_name_ + ".desired_linear_vel", desired_linear_vel_, 0.12);
-        initParam(node_, plugin_name_ + ".desired_lookahead_dist", desired_lookahead_dist_, 0.3);
+        initParam(node_, plugin_name_ + ".desired_linear_vel", desired_linear_vel_, 0.18);
+        initParam(node_, plugin_name_ + ".desired_lookahead_dist", desired_lookahead_dist_, 0.4);
         initParam(node_, plugin_name_ + ".max_angular_vel", max_angular_vel_, 1.0);
         initParam(node_, plugin_name_ + ".max_linear_vel", max_linear_vel_, 0.22);
         initParam(node_, plugin_name_ + ".xy_goal_thres", xy_goal_thres_, 0.05);
         initParam(node_, plugin_name_ + ".yaw_goal_thres", yaw_goal_thres_, 0.25);
-        initParam(node_, plugin_name_ + ".curvature_threshold", curvature_threshold, 1.0);
-        initParam(node_, plugin_name_ + ".proximity_threshold", proximity_threshold, 1.0);
+        initParam(node_, plugin_name_ + ".curvature_threshold", curvature_threshold, 1.5);
+        initParam(node_, plugin_name_ + ".proximity_threshold", proximity_threshold, 0.8);
         initParam(node_, plugin_name_ + ".lookahead_gain", lookahead_gain, 5.0);
 
-        current_lookahead_dist_ = desired_lookahead_dist_;
+        adjusted_lookahead = desired_lookahead_dist_;
 
-        // initialize topics
-        // sub_scan_ = node_->create_subscription<some msg type>(
-        //     "some topic", rclcpp::SensorDataQoS(),
-        //     std::bind(&Controller::some_callback, this, std::placeholders::_1));
+        //initialize topics
+        sub_scan_ = node_->create_subscription<sensor_msgs::msg::LaserScan>(
+            "/scan", rclcpp::SensorDataQoS(),
+            std::bind(&Controller::scannerCallback, this, std::placeholders::_1));
+    }
+
+    void Controller::scannerCallback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
+    {
+        scan_ranges_ = msg->ranges;
     }
 
     geometry_msgs::msg::TwistStamped Controller::computeVelocityCommands(
@@ -119,7 +124,7 @@ namespace ee4308::turtle
             double dist_from_robot = std::hypot((point_pose_x - robot_x),(point_pose_y - robot_y));
             //std::cout << "dist_from_robot: " << dist_from_robot << std::endl;
 
-            if (dist_from_robot >= current_lookahead_dist_) 
+            if (dist_from_robot >= adjusted_lookahead) 
             {
                 lookahead_pose = global_plan_.poses[j];
                 break;
@@ -136,48 +141,43 @@ namespace ee4308::turtle
         // calculate curvature
         double d_squared = std::pow(x_r, 2) + std::pow(y_r, 2);
         double curvature = 2 * y_r / d_squared;
-        std::cout << "curvature: " << curvature << std::endl;
+        //std::cout << "curvature: " << curvature << std::endl;
 
-        double linear_vel =  desired_linear_vel_;
-        double angular_vel = linear_vel * curvature;
+        double angular_vel = desired_linear_vel_ * curvature;
 
         // Curvature Heuristic
-
-        double intermediate_linear_vel = linear_vel;
+        double regulated_linear_vel = desired_linear_vel_;
 
         if (curvature_threshold < std::abs(curvature))
         {
-            intermediate_linear_vel = desired_linear_vel_ * (curvature_threshold / std::abs(curvature));
+            regulated_linear_vel = desired_linear_vel_ * (curvature_threshold / std::abs(curvature));
         }
-        //std::cout << "intermediate_linear_vel " << intermediate_linear_vel << std::endl;
 
-        // Proximity Heuristic
+        // Find distance to the closest obstacle
+        double min_obstacle_dist = std::numeric_limits<double>::max();
 
-        double regulated_linear_vel = intermediate_linear_vel;
-        //std::cout << "regulated_linear_vel " << regulated_linear_vel << std::endl;
-       
-        if (shortest_dist < proximity_threshold)
+        for (const auto &range: scan_ranges_)
+        {
+            if (range < min_obstacle_dist && std::isfinite(range))
+            {
+                min_obstacle_dist = range;
+            }
+        }
+
+        // Obstacle Heuristic
+        if (min_obstacle_dist < proximity_threshold)
         {
             //std::cout << "shortest_dist: " << shortest_dist << std::endl;
-            regulated_linear_vel = intermediate_linear_vel * (shortest_dist / proximity_threshold);
+            regulated_linear_vel = regulated_linear_vel * (min_obstacle_dist / proximity_threshold);
         }
 
-        //std::cout << "regulated_linear_vel1: " << regulated_linear_vel << std::endl;
-
         // Vary Lookahead
-
-        double adjusted_lookahead_dist = regulated_linear_vel * lookahead_gain;
-        std::cout << "adjusted lookahead distance: " << adjusted_lookahead_dist << std::endl;
-
-        current_lookahead_dist_ = adjusted_lookahead_dist;    
-        //std::cout << "regulated_linear_vel2: " << regulated_linear_vel << std::endl;
+        adjusted_lookahead = regulated_linear_vel * lookahead_gain;
 
         regulated_linear_vel = std::clamp(regulated_linear_vel, -max_linear_vel_, max_linear_vel_);
         angular_vel = std::clamp(angular_vel, -max_angular_vel_, max_angular_vel_);
 
-
-        //std::cout << "regulated_linear_vel " << regulated_linear_vel << std::endl;
-        return writeCmdVel(linear_vel, angular_vel);
+        return writeCmdVel(regulated_linear_vel, angular_vel);
     }
 
     geometry_msgs::msg::TwistStamped Controller::writeCmdVel(double linear_vel, double angular_vel)

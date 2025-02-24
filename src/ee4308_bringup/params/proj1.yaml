@@ -18,14 +18,14 @@ controller_server:
 
     FollowPath:
       plugin: "ee4308::turtle::Controller"
-      desired_linear_vel: 0.12
-      desired_lookahead_dist: 0.3
+      desired_linear_vel: 0.18
+      desired_lookahead_dist: 0.4
       max_angular_vel: 1.0
       max_linear_vel: 0.22
       xy_goal_thres: 0.05
       yaw_goal_thres: 0.25
-      curvature_threshold: 1.0
-      proximity_threshold: 1.0
+      curvature_threshold: 1.5
+      proximity_threshold: 0.8
       lookahead_gain: 5.0
 
 

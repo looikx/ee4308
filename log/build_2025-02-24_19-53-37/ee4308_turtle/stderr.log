@@ -1,0 +1,15 @@
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/planner.cpp:[m[K In member function ‘[01m[Kvirtual nav_msgs::msg::Path ee4308::turtle::Planner::createPlan(const PoseStamped&, const PoseStamped&)[m[K’:
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/planner.cpp:79:41:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kstd::vector<std::array<int, 2> > coords[m[K’
+   79 |         std::vector<std::array<int, 2>> [01;31m[Kcoords[m[K;
+      |                                         [01;31m[K^~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/planner.cpp:51:41:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::vector<std::array<int, 2> > coords[m[K’ previously declared here
+   51 |         std::vector<std::array<int, 2>> [01;36m[Kcoords[m[K;
+      |                                         [01;36m[K^~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/planner.cpp:44:22:[m[K [01;31m[Kerror: [m[Kunused variable ‘[01m[Kgoal_node[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Werror=unused-variable]8;;[m[K]
+   44 |         PlannerNode* [01;31m[Kgoal_node[m[K = nodes.getNode(goal_mx, goal_my);
+      |                      [01;31m[K^~~~~~~~~[m[K
+cc1plus: all warnings being treated as errors
+gmake[2]: *** [CMakeFiles/ee4308_turtle_planner.dir/build.make:76: CMakeFiles/ee4308_turtle_planner.dir/src/planner.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/ee4308_turtle_planner.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

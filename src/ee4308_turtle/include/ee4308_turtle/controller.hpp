@@ -53,13 +53,13 @@ namespace ee4308::turtle
         double proximity_threshold;
         double lookahead_gain;
         
-        double current_lookahead_dist_;
+        double adjusted_lookahead;
 
         // topics 
         nav_msgs::msg::Path global_plan_;
         std::vector<float> scan_ranges_;
-        // rclcpp::Subscription<some msg type>::SharedPtr sub_scan_;
-        // void some callback(some msg type::SharedPtr msg);
+        rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr sub_scan_;
+        void scannerCallback(sensor_msgs::msg::LaserScan::SharedPtr msg);
 
         // other "private" functions
         geometry_msgs::msg::TwistStamped writeCmdVel(double linear_vel, double angular_vel);
