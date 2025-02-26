@@ -33,7 +33,7 @@ namespace ee4308::turtle
         // initialize parameters
         initParam(node_, plugin_name_ + ".desired_linear_vel", desired_linear_vel_, 0.18);
         initParam(node_, plugin_name_ + ".desired_lookahead_dist", desired_lookahead_dist_, 0.4);
-        initParam(node_, plugin_name_ + ".max_angular_vel", max_angular_vel_, 1.0);
+        initParam(node_, plugin_name_ + ".max_/home/kai137/ee4308/src/ee4308_turtle/src/controller.cppangular_vel", max_angular_vel_, 1.0);
         initParam(node_, plugin_name_ + ".max_linear_vel", max_linear_vel_, 0.22);
         initParam(node_, plugin_name_ + ".xy_goal_thres", xy_goal_thres_, 0.05);
         initParam(node_, plugin_name_ + ".yaw_goal_thres", yaw_goal_thres_, 0.25);
