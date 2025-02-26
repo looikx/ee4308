@@ -5,6 +5,8 @@
 /home/kai137/ee4308/install/ee4308_bringup/share/ee4308_bringup//rviz/.gitignore
 /home/kai137/ee4308/install/ee4308_bringup/share/ee4308_bringup//params/proj1.yaml
 /home/kai137/ee4308/install/ee4308_bringup/share/ee4308_bringup//maps/.gitignore
+/home/kai137/ee4308/install/ee4308_bringup/share/ee4308_bringup//maps/my_map.pgm
+/home/kai137/ee4308/install/ee4308_bringup/share/ee4308_bringup//maps/my_map.yaml
 /home/kai137/ee4308/install/ee4308_bringup/share/ee4308_bringup//maps/my_map_sim.pgm
 /home/kai137/ee4308/install/ee4308_bringup/share/ee4308_bringup//maps/my_map_sim.yaml
 /home/kai137/ee4308/install/ee4308_bringup/share/ee4308_bringup//urdf/turtle_proj1.urdf.xacro

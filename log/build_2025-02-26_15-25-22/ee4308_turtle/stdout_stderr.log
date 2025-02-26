@@ -1,0 +1,84 @@
+[35m[1mConsolidate compiler generated dependencies of target ee4308_turtle_controller[0m
+[ 50%] Built target ee4308_turtle_planner
+[ 75%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:131:9:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kfor[m[K’
+  131 |         [01;31m[Kfor[m[K (size_t i = 0; i < global_plan_.poses.size(); i++)
+      |         [01;31m[K^~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:131:28:[m[K [01;31m[Kerror: [m[K‘[01m[Ki[m[K’ does not name a type
+  131 |         for (size_t i = 0; [01;31m[Ki[m[K < global_plan_.poses.size(); i++)
+      |                            [01;31m[K^[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:131:59:[m[K [01;31m[Kerror: [m[K‘[01m[Ki[m[K’ does not name a type
+  131 |         for (size_t i = 0; i < global_plan_.poses.size(); [01;31m[Ki[m[K++)
+      |                                                           [01;31m[K^[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:145:58:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_pose[m[K’ was not declared in this scope
+  145 |     geometry_msgs::msg::PoseStamped lookahead_pose = [01;31m[Kgoal_pose[m[K;
+      |                                                      [01;31m[K^~~~~~~~~[m[K
+
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:148:9:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kfor[m[K’
+  148 |         [01;31m[Kfor[m[K (size_t j = closest_index + 1; j < global_plan_.poses.size(); j++)
+      |         [01;31m[K^~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:148:44:[m[K [01;31m[Kerror: [m[K‘[01m[Kj[m[K’ does not name a type
+  148 |         for (size_t j = closest_index + 1; [01;31m[Kj[m[K < global_plan_.poses.size(); j++)
+      |                                            [01;31m[K^[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:148:75:[m[K [01;31m[Kerror: [m[K‘[01m[Kj[m[K’ does not name a type
+  148 | ze_t j = closest_index + 1; j < global_plan_.poses.size(); [01;31m[Kj[m[K++)
+      |                                                            [01;31m[K^[m[K
+
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:162:59:[m[K [01;31m[Kerror: [m[K‘[01m[Krobot_x[m[K’ was not declared in this scope
+  162 |      double delta_x = lookahead_pose.pose.position.x - [01;31m[Krobot_x[m[K;
+      |                                                        [01;31m[K^~~~~~~[m[K
+
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:163:59:[m[K [01;31m[Kerror: [m[K‘[01m[Krobot_y[m[K’ was not declared in this scope
+  163 |      double delta_y = lookahead_pose.pose.position.y - [01;31m[Krobot_y[m[K;
+      |                                                        [01;31m[K^~~~~~~[m[K
+
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:165:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kphi[m[K’ was not declared in this scope
+  165 |         double x_r = delta_x * std::cos([01;31m[Kphi[m[K) + delta_y * std::sin(phi);
+      |                                         [01;31m[K^~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:165:67:[m[K [01;31m[Kerror: [m[K‘[01m[Kphi[m[K’ was not declared in this scope
+  165 | double x_r = delta_x * std::cos(phi) + delta_y * std::sin([01;31m[Kphi[m[K);
+      |                                                           [01;31m[K^~~[m[K
+
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:166:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kphi[m[K’ was not declared in this scope
+  166 |         double y_r = delta_y * std::cos([01;31m[Kphi[m[K) - delta_x * std::sin(phi);
+      |                                         [01;31m[K^~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:166:67:[m[K [01;31m[Kerror: [m[K‘[01m[Kphi[m[K’ was not declared in this scope
+  166 | double y_r = delta_y * std::cos(phi) - delta_x * std::sin([01;31m[Kphi[m[K);
+      |                                                           [01;31m[K^~~[m[K
+
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:173:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kdesired_linear_vel_[m[K’ was not declared in this scope
+  173 |         double angular_vel = [01;31m[Kdesired_linear_vel_[m[K * curvature;
+      |                              [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:176:39:[m[K [01;31m[Kerror: [m[K‘[01m[Kdesired_linear_vel_[m[K’ was not declared in this scope
+  176 |         double regulated_linear_vel = [01;31m[Kdesired_linear_vel_[m[K;
+      |                                       [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:178:9:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kif[m[K’
+  178 |         [01;31m[Kif[m[K (curvature_threshold < std::abs(curvature))
+      |         [01;31m[K^~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:186:9:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kfor[m[K’
+  186 |         [01;31m[Kfor[m[K (const auto &range: scan_ranges_)
+      |         [01;31m[K^~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:195:9:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kif[m[K’
+  195 |         [01;31m[Kif[m[K (min_obstacle_dist < proximity_threshold)
+      |         [01;31m[K^~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:202:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kadjusted_lookahead[m[K’ does not name a type
+  202 |         [01;31m[Kadjusted_lookahead[m[K = regulated_linear_vel * lookahead_gain;
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:205:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kregulated_linear_vel[m[K’ does not name a type
+  205 |         [01;31m[Kregulated_linear_vel[m[K = std::clamp(regulated_linear_vel, -max_linear_vel_, max_linear_vel_);
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:206:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kangular_vel[m[K’ does not name a type
+  206 |         [01;31m[Kangular_vel[m[K = std::clamp(angular_vel, -max_angular_vel_, max_angular_vel_);
+      |         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:208:9:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kreturn[m[K’
+  208 |         [01;31m[Kreturn[m[K writeCmdVel(regulated_linear_vel, angular_vel);
+      |         [01;31m[K^~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:211:38:[m[K [01;31m[Kerror: [m[K‘[01m[KController[m[K’ has not been declared
+  211 |     geometry_msgs::msg::TwistStamped [01;31m[KController[m[K::writeCmdVel(double linear_vel, double angular_vel)
+      |                                      [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:218:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+  218 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

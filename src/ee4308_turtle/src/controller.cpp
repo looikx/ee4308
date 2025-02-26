@@ -33,13 +33,13 @@ namespace ee4308::turtle
         // initialize parameters
         initParam(node_, plugin_name_ + ".desired_linear_vel", desired_linear_vel_, 0.18);
         initParam(node_, plugin_name_ + ".desired_lookahead_dist", desired_lookahead_dist_, 0.4);
-        initParam(node_, plugin_name_ + ".max_/home/kai137/ee4308/src/ee4308_turtle/src/controller.cppangular_vel", max_angular_vel_, 1.0);
+        initParam(node_, plugin_name_ + ".max_angular_vel", max_angular_vel_, 1.0);
         initParam(node_, plugin_name_ + ".max_linear_vel", max_linear_vel_, 0.22);
         initParam(node_, plugin_name_ + ".xy_goal_thres", xy_goal_thres_, 0.05);
         initParam(node_, plugin_name_ + ".yaw_goal_thres", yaw_goal_thres_, 0.25);
         initParam(node_, plugin_name_ + ".curvature_threshold", curvature_threshold, 1.5);
-        initParam(node_, plugin_name_ + ".proximity_threshold", proximity_threshold, 0.8);
-        initParam(node_, plugin_name_ + ".lookahead_gain", lookahead_gain, 5.0);
+        initParam(node_, plugin_name_ + ".proximity_threshold", proximity_threshold, 0.7);
+        initParam(node_, plugin_name_ + ".lookahead_gain", lookahead_gain, 3.0);
 
         adjusted_lookahead = desired_lookahead_dist_;
 
@@ -82,17 +82,46 @@ namespace ee4308::turtle
         double phi = ee4308::getYawFromQuaternion(pose.pose.orientation); // orientation of the robot
 
         // check if robot is close to the goal (both dist and yaw)
-        double dist_to_goal = std::hypot(goal_x - robot_x, goal_y - robot_y);
-        double diff_yaw = std::abs(ee4308::limitAngle(goal_yaw - phi));
+        double dist_to_goal = std::abs(std::hypot(goal_x - robot_x, goal_y - robot_y));
+        double diff_yaw = (ee4308::limitAngle(goal_yaw - phi));
 
         // if close to goal, then stop
         if (dist_to_goal < xy_goal_thres_)
         {
             // if robot's heading is far from goal orientation, then
-            if (diff_yaw > yaw_goal_thres_)
+            if (std::abs(diff_yaw) > yaw_goal_thres_ ) //
             {
-                return writeCmdVel(0, max_angular_vel_); 
+                if (diff_yaw > 0) {
+                    //std::cout << "diff yaw1 " << diff_yaw << std::endl;
+                    return writeCmdVel(0, 0.5* max_angular_vel_);
+                }
+                if ( diff_yaw < 0) {
+                    //std::cout << "diff yaw2 " << diff_yaw << std::endl;
+                    return writeCmdVel(0, -0.5* max_angular_vel_);
+                }
+                // if (std::abs(diff_yaw) > 3.14 && diff_yaw > 0) {
+                //     std::cout << "diff yaw3 " << diff_yaw << std::endl;
+                //     return writeCmdVel(0, 0.5* max_angular_vel_);
+                // }
+                // if (std::abs(diff_yaw) > 3.14 && diff_yaw < 0) {
+                //     std::cout << "diff yaw4 " << diff_yaw << std::endl;
+                //     return writeCmdVel(0, -0.5* max_angular_vel_);
+                // }
+
+                
             }
+            // if (diff_yaw > yaw_goal_thres_ && std::abs(diff_yaw) < 180 && diff_yaw > 0) //
+            // {
+            //     RCLCPP_WARN_STREAM(node_->get_logger(), "Goal orientation not reached!");
+            //     return writeCmdVel(0, 0.5* -max_angular_vel_); 
+            // }
+            // else if (diff_yaw > yaw_goal_thres_ && diff_yaw < 0 && std::abs(diff_yaw) > 180)
+            // {
+            //     RCLCPP_WARN_STREAM(node_->get_logger(), "Goal orientation not reached!");
+            //     return writeCmdVel(0, 0.5* max_angular_vel_); 
+            // }
+
+            RCLCPP_INFO_STREAM(node_->get_logger(), "Goal reached!");
             return writeCmdVel(0, 0);
         }
 
@@ -104,7 +133,7 @@ namespace ee4308::turtle
             double point_pose_x = global_plan_.poses[i].pose.position.x; 
             double point_pose_y = global_plan_.poses[i].pose.position.y;
             double dist = std::hypot((point_pose_x - robot_x),(point_pose_y - robot_y));
-            //std::cout << "calculated distance" << dist << std::endl;
+    
             if (dist < shortest_dist) 
             {
                 shortest_dist = dist;
@@ -116,13 +145,11 @@ namespace ee4308::turtle
         geometry_msgs::msg::PoseStamped lookahead_pose = goal_pose;
 
         // Determine lookahead point
-        //std::cout << "current lookahead distance: " << current_lookahead_dist_ << std::endl;
         for (size_t j = closest_index + 1; j < global_plan_.poses.size(); j++)
         {
             double point_pose_x = global_plan_.poses[j].pose.position.x; 
             double point_pose_y = global_plan_.poses[j].pose.position.y;
             double dist_from_robot = std::hypot((point_pose_x - robot_x),(point_pose_y - robot_y));
-            //std::cout << "dist_from_robot: " << dist_from_robot << std::endl;
 
             if (dist_from_robot >= adjusted_lookahead) 
             {
@@ -171,9 +198,11 @@ namespace ee4308::turtle
             regulated_linear_vel = regulated_linear_vel * (min_obstacle_dist / proximity_threshold);
         }
 
-        // Vary Lookahead
+        // Vary Lookahead   
+        std::cout << "regulated linear " << regulated_linear_vel << std::endl;
         adjusted_lookahead = regulated_linear_vel * lookahead_gain;
-
+        
+        // Clamp values
         regulated_linear_vel = std::clamp(regulated_linear_vel, -max_linear_vel_, max_linear_vel_);
         angular_vel = std::clamp(angular_vel, -max_angular_vel_, max_angular_vel_);
 

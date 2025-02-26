@@ -1,0 +1,19 @@
+[35m[1mConsolidate compiler generated dependencies of target ee4308_turtle_controller[0m
+[ 50%] Built target ee4308_turtle_planner
+[ 75%] [32mBuilding CXX object CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o[0m
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:[m[K In member function ‘[01m[Kvirtual void ee4308::turtle::Controller::configure(const WeakPtr&, std::string, std::shared_ptr<tf2_ros::Buffer>, std::shared_ptr<nav2_costmap_2d::Costmap2DROS>)[m[K’:
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:40:18:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KinitParam(rclcpp_lifecycle::LifecycleNode::SharedPtr&, std::__cxx11::basic_string<char>, double&, int)[m[K’
+   40 |         [01;31m[KinitParam(node_, plugin_name_ + ".curvature_threshold", curvature_threshold, 5)[m[K;
+      |         [01;31m[K~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/kai137/ee4308/src/ee4308_turtle/include/ee4308_turtle/controller.hpp:12[m[K,
+                 from [01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:1[m[K:
+[01m[K/home/kai137/ee4308/install/ee4308_core/include/ee4308_core/core.hpp:53:10:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class U, class T> void ee4308::initParam(U, const string&, T&, const T&)[m[K’
+   53 |     void [01;36m[KinitParam[m[K(const U node_ptr, const std::string &param_name, T &param_var, const T &default_value)
+      |          [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/kai137/ee4308/install/ee4308_core/include/ee4308_core/core.hpp:53:10:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/kai137/ee4308/src/ee4308_turtle/src/controller.cpp:40:18:[m[K [01;36m[Knote: [m[K  deduced conflicting types for parameter ‘[01m[Kconst T[m[K’ (‘[01m[Kdouble[m[K’ and ‘[01m[Kint[m[K’)
+   40 |         [01;36m[KinitParam(node_, plugin_name_ + ".curvature_threshold", curvature_threshold, 5)[m[K;
+      |         [01;36m[K~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/ee4308_turtle_controller.dir/build.make:76: CMakeFiles/ee4308_turtle_controller.dir/src/controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/ee4308_turtle_controller.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

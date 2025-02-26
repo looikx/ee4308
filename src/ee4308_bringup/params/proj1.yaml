@@ -25,8 +25,8 @@ controller_server:
       xy_goal_thres: 0.05
       yaw_goal_thres: 0.25
       curvature_threshold: 1.5
-      proximity_threshold: 0.8
-      lookahead_gain: 5.0
+      proximity_threshold: 0.7
+      lookahead_gain: 3.0
 
 
 planner_server:
@@ -36,7 +36,7 @@ planner_server:
     planner_plugins: ["GridBased"]
     GridBased:
       plugin: "ee4308::turtle::Planner"
-      max_access_cost: 255
+      max_access_cost: 230
       interpolation_distance: 0.05
       sg_half_window: 5
       sg_order: 3
